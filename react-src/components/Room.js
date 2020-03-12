@@ -1,64 +1,20 @@
 import React, { Component } from 'react'
-import roomOff from '../images/room-off.jpg'
-import roomOn from '../images/room-on.jpg'
-import LightSwitch from './LightSwitch'
-import Tooltip from './Tooltip'
+import roomOff from '../images/room-light-off.jpg'
+import roomOn from '../images/room-light-on.jpg'
 
 class Room extends Component {
-
-  state = {
-    lightOn: false,
-    showTooltip: false
-  }
-
-  onLightToggle = () => {
-    this.setState({
-      lightOn: !this.state.lightOn
-    })
-  }
-
-  displayToolTip = () => {
-    console.log(true)
-    this.setState({
-      showTooltip: true
-    })
-  }
-
-  hideToolTip = () => {
-    console.log(false)
-    this.setState({
-      showTooltip: false
-    })
-  }
 
   render() {
     return (
       <>
-        <div
-          className='room-container'>
-          <div
-          className='room-inner'
-          >
-          <img
-            draggable='false'
-            src={
-              this.state.lightOn == true
-              ? roomOn
-              : roomOff
-            }
-          />
-          <LightSwitch
-            triggerLight={this.onLightToggle}
-            displayToolTip={this.displayToolTip}
-            hideToolTip={this.hideToolTip}
-            />
-          {
-            this.state.showTooltip
-            ? <Tooltip/>
-            : null
+        <img
+          draggable='false'
+          src={
+            this.props.lightOn == true
+            ? roomOn
+            : roomOff
           }
-          </div>
-        </div>
+        />
       </>
     )
   }
