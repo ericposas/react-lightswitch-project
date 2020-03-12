@@ -1,16 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const htmlPlugin = require('html-webpack-plugin')
-// const dotenv = require('dotenv')
 
 module.exports = () => {
-
-  // const env = dotenv.config().parsed
-
-  // const envKeys = Object.keys(env).reduce((prev, next) => {
-  //   prev[`process.env.${next}`] = JSON.stringify(env[next])
-  //   return prev
-  // }, {})
 
   return {
     entry: [ '@babel/polyfill', './react-src/index.js' ],
@@ -83,8 +75,7 @@ module.exports = () => {
         filename: 'index.html',
         template: './react-src/index.html',
         inject: false
-      }),
-      // new webpack.DefinePlugin(envKeys)
+      })
     ]
   }
 }
